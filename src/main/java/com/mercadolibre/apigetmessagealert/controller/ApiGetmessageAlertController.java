@@ -43,7 +43,7 @@ public class ApiGetmessageAlertController {
 			response.put("position", geolocalizationService
 					.getGeolocalization(new double[][] { { -500, -200 }, { 100, -100 }, { 500, 100 } }, distances));
 			response.put("message", messageService.getMessage(Messages));
-			
+
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
 		} catch (Exception e) {
 			response.put("RESPONSE CODE:", "404");
@@ -68,10 +68,10 @@ public class ApiGetmessageAlertController {
 			response.put("position", geolocalizationService
 					.getGeolocalization(new double[][] { { -500, -200 }, { 100, -100 }, { 500, 100 } }, distances));
 			response.put("message", messageService.getMessage(Messages));
-			
+
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
 		} catch (Exception e) {
-			response.put("RESPONSE CODE:", "404");
+			response.put("error", "not enough information");
 
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
 		}
@@ -92,11 +92,11 @@ public class ApiGetmessageAlertController {
 			response.put("position", geolocalizationService
 					.getGeolocalization(new double[][] { { -500, -200 }, { 100, -100 }, { 500, 100 } }, distances));
 			response.put("message", messageService.getMessage(Messages));
-			
+
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
-			
+
 		} catch (Exception e) {
-			response.put("error", "not enough information");
+			response.put("RESPONSE CODE:", "404");
 
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
 		}

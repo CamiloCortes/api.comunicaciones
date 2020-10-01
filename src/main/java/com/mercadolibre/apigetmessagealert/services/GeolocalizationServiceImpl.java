@@ -17,7 +17,15 @@ import com.mercadolibre.apigetmessagealert.entity.Geolocalization;
  */
 @Service
 public class GeolocalizationServiceImpl implements IGeolocalizationService {
-
+	/**
+	 * funcion encargada de triangular una coordenada teniendo en cuenta las
+	 * coordenadas y distancias recibidas por parametro. para determinar la
+	 * coordenada se hace uso de la
+	 * libreria:<artifactId>trilateration</artifactId><version>1.0.2</version> la
+	 * cual contiene la logica para obtener la cordenada resultante.
+	 * 
+	 * @return coordenada
+	 */
 	@Override
 	public Geolocalization getGeolocalization(double[][] positions, double[] distances) {
 
@@ -27,7 +35,8 @@ public class GeolocalizationServiceImpl implements IGeolocalizationService {
 
 		double[] centroid = optimum.getPoint().toArray();
 
-		return new Geolocalization(centroid[0], centroid[1]);
+		return new Geolocalization((double) Math.round(centroid[0] * 100d) / 100d,
+				(double) Math.round(centroid[1] * 100d) / 100d);
 	}
 
 }
