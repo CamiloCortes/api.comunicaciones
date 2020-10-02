@@ -1,6 +1,5 @@
 package com.mercadolibre.apigetmessagealert;
 
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,6 +14,10 @@ public class GeolocalizationServiceTest {
 	@Autowired
 	private IGeolocalizationService geolocalizationService;
 
+	/**
+	 * valida la funcionalidad que triangula las pociciones o coordenadas
+	 * @throws Exception
+	 */
 	@Test
 	void validateGeolocalization() throws Exception {
 

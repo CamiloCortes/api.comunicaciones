@@ -17,6 +17,9 @@ public class MessageServiceTest {
 	@Autowired
 	private IMessageService messageService;
 
+	/**
+	 * valida la funcionalidad que interpreta y construye el mensaje
+	 */
 	@Test
 	public void validateMessage() {
 
